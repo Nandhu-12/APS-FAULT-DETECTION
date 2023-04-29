@@ -14,6 +14,5 @@ if __name__=="__main__" :
     print(f"rows and columns : {df.shape}")
     df.reset_index(drop= True,inplace=True)
     json_record = list(json.loads(df.T.to_json()).values())
-    print(json_record[0])
 
     client[database_name][collection_name].insert_many(json_record)
